@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Invalid verification</title>
+</head>
+<body>
+    {% csrf_token %}
+    {% block content %}
+        <div class="row">
+            <p>Некорректная ссылка, попробуйте войти снова.</p>
+            <a href="{% url 'login' %}">LOGIN</a>
+        </div>
+    {% endblock %}
+</body>
+</html>

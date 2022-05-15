@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm_email</title>
+</head>
+<body>
+    {% csrf_token %}
+    {% block content %}
+        <div class="row">
+            <p>Пожалуйста, проверьте почту для подтверждения аккаунта.</p>
+        </div>
+    {% endblock %}
+</body>
+</html>

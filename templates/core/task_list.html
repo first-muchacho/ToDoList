@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo List</title>
+</head>
+<body>
+{% if request.user.is_authenticated %}
+    <p>{{request.user}}</p>
+    <a href="{% url 'logout' %}">Go away</a>
+{% endif %}
+<h1>U ToDo List</h1>
+<a href="{% url 'create_form' %}">Create task</a>
+<form method="GET">
+    <input type="text" name="search_form" value="{{search}}">
+    <input type="submit" value="Search">
+</form>
+<table>
+    {% for task in task_list %}
+    <tr>
+        <td>{{task.title}}</td>
+        <td><a href="{% url 'task' task.id %}">View</a></td>
+        <td><a href="{% url 'update_task' task.id %}">Edit</a></td>
+        <td><a href="{% url 'delete_task' task.id %}">Delete</a></td>
+    </tr>
+    {% empty %}
+    <p>No tasks, u can create u task</p>
+    {% endfor %}
+</table>
+</body>
+</html>
