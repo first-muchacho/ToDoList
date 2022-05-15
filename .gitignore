@@ -1,0 +1,7 @@
+/venv
+/.idea
+/core/__pycache__
+/ToDoList/__pycache__
+/users/__pycache__
+/core/migrations/__pycache__
+/users/migrations/__pycache__
