@@ -1,13 +1,18 @@
 {% extends 'index.html' %}
 {% block content %}
 
-<h1>Login</h1>
-<form method="POST">
+<div class="header-bar">
+    <h1>Login</h1>
+</div>
+
+<div class="card-body">
+    <form method="POST">
     {% csrf_token %}
     {{form.as_p}}
-    <input type="submit" value="Login">
+    <input class="button" type="submit" value="Login">
 </form>
-<p>Forgot your password? Don't worry - <a href="{% url 'password_reset' %}">Reset password</a></p>
-<p>Don't have an account? Do it right now - <a href="{% url 'registration' %}">Registration</a></p>
+<p>Forgot your password? Don't worry <a class="link" href="{% url 'password_reset' %}">&#8594; Reset password</a></p>
+<p>Don't have an account? Do it right now <a class="link" href="{% url 'registration' %}">&#8594; Registration</a></p>
+</div>
 
 {% endblock content %}

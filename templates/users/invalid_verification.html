@@ -1,40 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>ToDo List</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap" rel="stylesheet">
+{% extends 'index.html' %}
+{% block content %}
 
-    <style>
-        body{
-            background-color: #FFE4C4;
-            font-family: 'Nunito Sans', sans-serif;
-            padding-top: 60px;
-        }
-        .container{
-            max-width: 600px;
-            margin: auto;
-            background-color: #D8BFD8;
-            -webkit-box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
-            box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
-        }
-    </style>
-</head>
-<h1>Invalid verification</h1>
-<body>
-    <div class="container">
-        {% csrf_token %}
-        {% block content %}
-            <div class="row">
-                <p>Invalid link, please try again.</p>
-                <a href="{% url 'login' %}">Login</a>
-            </div>
-        {% endblock %}
+<div class="header-bar">
+    <h1>Invalid verification</h1>
+</div>
+
+<div class="card-body">
+    {% csrf_token %}
+    <div class="row">
+        <p>Invalid link, please try again.</p>
+        <a class="link" href="{% url 'login' %}">&#8594; Login</a>
     </div>
-</body>
-</html>
+</div>
+
+{% endblock content %}
