@@ -1,10 +1,14 @@
 {% extends 'index.html' %}
 {% block content %}
 
-<body>
-    <div class="container"></div>
-        <h1>Task: {{task}} - {{task.description}}</h1>
-    </div>
-</body>
+<div class="header-bar">
+    <a href="{% url 'task_list' %}">&#10094; Come back</a>
+</div>
+
+<div class="card-body">
+    <h1>{{task}}</h1>
+    <hr color="#E0FFFF">
+    <h2>{{task.description}}</h2>
+</div>
 
 {% endblock content %}
