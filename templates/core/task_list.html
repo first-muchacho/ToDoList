@@ -7,7 +7,10 @@
         <h3 style="margin:0">You have {{count}} incomplete task{{ count|pluralize:"s" }}.</h3>
     </div>
     {% if request.user.is_authenticated %}
-    <a href="{% url 'logout' %}">Logout</a>
+    <div>
+        <a style="padding-right: 10px;" href="{% url 'update_profile' user.id %}">Profile</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
     {% else %}
     <a href="{% url 'login' %}">Login</a>
     {% endif %}
@@ -46,7 +49,9 @@
             {% endif %}
         </div>
     {% empty %}
-    <em>You have nothing to do, you are a happy person:)</em>
+    <div class="task-wrapper">
+        <h2 style="color: #778899;">You have nothing to do, you are a happy person:)</h2>
+    </div>
     {% endfor %}
 </div>
 

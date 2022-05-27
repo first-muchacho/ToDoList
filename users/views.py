@@ -1,5 +1,5 @@
 from django.views import View
-from django.views.generic.edit import FormView
+from django.views.generic.edit import FormView, UpdateView
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.utils.http import urlsafe_base64_decode
@@ -52,3 +52,10 @@ class Login(LoginView):
 
     def get_success_url(self):
         return reverse_lazy('task_list')
+
+
+class UpdateProfile(UpdateView):
+    model = CustomUser
+    fields = ['first_name', 'last_name', 'birth_date', 'gender']
+    template_name = 'users/profile.html'
+    success_url = reverse_lazy('task_list')

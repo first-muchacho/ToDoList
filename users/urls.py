@@ -2,7 +2,7 @@ from django.contrib.auth import views as auth_views
 from django.urls import path
 from django.contrib.auth.views import LogoutView
 from django.views.generic import TemplateView
-from .views import Login, Registration, VerifyEmail
+from .views import Login, Registration, VerifyEmail, UpdateProfile
 
 
 urlpatterns = [
@@ -23,4 +23,6 @@ urlpatterns = [
         template_name='users/password_reset_confirm.html'), name='password_reset_confirm'),
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(
         template_name='users/password_reset_complete.html'), name='password_reset_complete'),
+
+    path('profile/<int:pk>/', UpdateProfile.as_view(), name='update_profile')
 ]

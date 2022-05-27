@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<div class="header-bar">
+    <div>
+        <a href="{% url 'task_list' %}">&#10094; Come back</a>
+        <h2>{{request.user|title}}, tell us more about your self.</h2>
+    </div>
+</div>
+
+<div class="card-body">
+    <form method="POST" action="">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input class="button" type="submit" value="Confirm">
+</form>
+</div>
+
+{% endblock content %}
